@@ -20,8 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FilebotParser {
     
-    @Autowired
-    private NotificationService notificationService;
+    // @Autowired
+    // private NotificationService notificationService;
 
     public List<Filebot> parseHtml(String html) {
         log.info("Parsing html");
@@ -39,8 +39,8 @@ public class FilebotParser {
             filebots.add(filebot);
             if (filebot.getNewLocation().contains("Unsorted")) {
                 filebot.setUnsorted(true);
-                notificationService.send(SnsTopic.TELEGRAM_MESSAGE, "Unsorted file " + filebot.getOriginalName(),
-                        "filebot-parser");
+                // notificationService.send(SnsTopic.TELEGRAM_MESSAGE, "Unsorted file " + filebot.getOriginalName(),
+                //         "filebot-parser");
             }
         }
         return filebots;
